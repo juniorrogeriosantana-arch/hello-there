@@ -1,0 +1,1 @@
+create policy "store img admin select" on storage.objects for select to authenticated using (bucket_id = 'store-images' and public.has_role(auth.uid(),'admin'));
