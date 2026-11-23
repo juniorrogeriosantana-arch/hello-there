@@ -21,7 +21,7 @@ export function SiteFooter() {
         </div>
         <div className="space-y-2 text-sm">
           <h4 className="font-display text-sm font-bold uppercase">Navegação</h4>
-          <Link to="/produtos" className="block text-muted-foreground hover:text-foreground">Produtos</Link>
+          <Link to="/produtos" search={{ cat: "", q: "" }} className="block text-muted-foreground hover:text-foreground">Produtos</Link>
           <Link to="/contato" className="block text-muted-foreground hover:text-foreground">Contato</Link>
           <Link to="/conta" className="block text-muted-foreground hover:text-foreground">Minha conta</Link>
         </div>

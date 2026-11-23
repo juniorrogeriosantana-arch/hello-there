@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Crosshair } from "lucide-react";
 
-export function Logo({ name = "GLZADAS CHEATS", logoUrl }: { name?: string; logoUrl?: string | null }) {
+export function Logo({ name: rawName, logoUrl }: { name?: string | undefined; logoUrl?: string | null | undefined }) {
+  const name = rawName ?? "GLZADAS CHEATS";
   const [a, ...rest] = name.split(" ");
   return (
     <Link to="/" className="flex items-center gap-2">

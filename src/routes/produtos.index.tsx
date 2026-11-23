@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/store/ProductCard";
 import { categoriesQuery, productsQuery } from "@/lib/store-queries";
 
 export const Route = createFileRoute("/produtos/")({
-  validateSearch: (s: Record<string, unknown>) => ({ cat: typeof s.cat === "string" ? s.cat : "", q: typeof s.q === "string" ? s.q : "" }),
+  validateSearch: (s: Record<string, unknown>) => ({ cat: typeof s["cat"] === "string" ? s["cat"] : "", q: typeof s["q"] === "string" ? s["q"] : "" }),
   head: () => ({ meta: [
     { title: "Produtos — GLZADAS CHEATS" },
     { name: "description", content: "Catálogo completo de artes, banners, overlays e personalizações gamer." },

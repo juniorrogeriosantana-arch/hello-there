@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
+import { Route as ContaRouteImport } from './routes/conta'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as ProdutosIndexRouteImport } from './routes/produtos.index'
 import { Route as ProdutosSlugRouteImport } from './routes/produtos.$slug'
@@ -17,6 +21,26 @@ import { Route as ProdutosSlugRouteImport } from './routes/produtos.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContaRoute = ContaRouteImport.update({
+  id: '/conta',
+  path: '/conta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -37,12 +61,20 @@ const ProdutosSlugRoute = ProdutosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/contato': typeof ContatoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
   '/produtos/': typeof ProdutosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/contato': typeof ContatoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
   '/produtos': typeof ProdutosIndexRoute
@@ -50,20 +82,53 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/auth': typeof AuthRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/contato': typeof ContatoRoute
   '/produtos/$slug': typeof ProdutosSlugRoute
   '/produtos/': typeof ProdutosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contato' | '/produtos/$slug' | '/produtos/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/carrinho'
+    | '/conta'
+    | '/contato'
+    | '/produtos/$slug'
+    | '/produtos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/produtos/$slug' | '/produtos'
-  id: '__root__' | '/' | '/contato' | '/produtos/$slug' | '/produtos/'
+  to:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/carrinho'
+    | '/conta'
+    | '/contato'
+    | '/produtos/$slug'
+    | '/produtos'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/carrinho'
+    | '/conta'
+    | '/contato'
+    | '/produtos/$slug'
+    | '/produtos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AuthRoute: typeof AuthRoute
+  CarrinhoRoute: typeof CarrinhoRoute
+  ContaRoute: typeof ContaRoute
   ContatoRoute: typeof ContatoRoute
   ProdutosSlugRoute: typeof ProdutosSlugRoute
   ProdutosIndexRoute: typeof ProdutosIndexRoute
@@ -76,6 +141,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conta': {
+      id: '/conta'
+      path: '/conta'
+      fullPath: '/conta'
+      preLoaderRoute: typeof ContaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -104,6 +197,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AuthRoute: AuthRoute,
+  CarrinhoRoute: CarrinhoRoute,
+  ContaRoute: ContaRoute,
   ContatoRoute: ContatoRoute,
   ProdutosSlugRoute: ProdutosSlugRoute,
   ProdutosIndexRoute: ProdutosIndexRoute,

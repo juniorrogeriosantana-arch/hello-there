@@ -60,7 +60,7 @@ function Home() {
             <h1 className="text-5xl font-black leading-tight md:text-7xl">GLZADAS <span className="text-gradient">CHEATS</span></h1>
             <p className="text-lg text-muted-foreground md:text-xl">Eleve sua identidade gamer com logos, banners, overlays e personalizações feitas sob medida.</p>
             <div className="flex flex-wrap gap-3">
-              <Button asChild variant="hero" size="xl"><Link to="/produtos">Ver produtos <ArrowRight /></Link></Button>
+              <Button asChild variant="hero" size="xl"><Link to="/produtos" search={{ cat: "", q: "" }}>Ver produtos <ArrowRight /></Link></Button>
               <Button asChild variant="glow" size="xl"><Link to="/contato">Entrar em contato</Link></Button>
             </div>
           </div>
@@ -81,7 +81,7 @@ function Home() {
       <section className="container mx-auto px-4 py-16">
         <div className="mb-8 flex items-end justify-between">
           <h2 className="text-2xl font-bold md:text-3xl">Em <span className="text-gradient">destaque</span></h2>
-          <Link to="/produtos" className="text-sm font-semibold text-primary-glow">Ver todos →</Link>
+          <Link to="/produtos" search={{ cat: "", q: "" }} className="text-sm font-semibold text-primary-glow">Ver todos →</Link>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{featured.map((p) => <ProductCard key={p.id} p={p} />)}</div>
       </section>

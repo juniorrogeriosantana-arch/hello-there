@@ -11,7 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const nav = [
   { to: "/", label: "Início" },
-  { to: "/produtos", label: "Produtos" },
+  
   { to: "/contato", label: "Contato" },
 ] as const;
 
@@ -32,6 +32,7 @@ export function SiteHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4">
         <Logo name={s?.store_name} logoUrl={s?.logo_url} />
         <nav className="hidden items-center gap-6 md:flex">
+          <Link to="/produtos" search={{ cat: "", q: "" }} className="text-sm font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground">Produtos</Link>
           {nav.map((n) => (
             <Link key={n.to} to={n.to} className="text-sm font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground" activeProps={{ className: "text-primary-glow" }} activeOptions={{ exact: n.to === "/" }}>{n.label}</Link>
           ))}
